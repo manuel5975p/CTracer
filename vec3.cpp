@@ -3,6 +3,7 @@ std::uniform_real_distribution<v_t> dist(-1,1);
 std::uniform_real_distribution<v_t> PI_2_dist(0,M_PI_2);
 std::uniform_real_distribution<v_t> PI_dist(0,M_PI);
 std::uniform_real_distribution<v_t> TWO_PI_dist(0,M_PI * 2);
+unsigned long long rand_counter = 0;
 vec3::vec3(v_t _x,v_t _y,v_t _z) : x(_x),y(_y),z(_z){
 	
 }
@@ -78,18 +79,22 @@ vec3 vec3::normalized()const{
 	v_t a = 1.0 / std::sqrt(x * x + y * y + z * z);
 	return vec3(x * a ,y * a, z * a);
 }
+//PRE: *this must be normalized!
 vec3 vec3::ortho(std::mt19937_64& gen)const{
-	vec3 tn = normalized();
 	vec3 ret(gen);
-	while(tn * ret < 0.01){
-		ret = vec3(gen);
-	}
-	return !(tn % ret);
+	return !(*this % ret);
 }
+//PRE: *this must be normalized!
 vec3 vec3::randomHemisphere(std::mt19937_64& gen)const{
+	v_t theta;
+	if(true||(++rand_counter) % 3)
+	theta = std::asin(dist(gen));
+	else
+	theta = PI_2_dist(gen);
 	vec3 orth = this->ortho(gen);
-	v_t theta = PI_2_dist(gen);
-	return (orth * std::cos(theta)) + (this->normalized() * std::sin(theta));
+	orth *= std::cos(theta);
+	orth += (*this * std::sin(theta));
+	return orth;
 }
 vec3 vec3::operator&(const vec3& o)const{
 	return hadamardProd(o);

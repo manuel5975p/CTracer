@@ -10,27 +10,24 @@ vec3 ambient(0.2,0.2,0.2);
 sphere s(vec3(0,0,2),0.7);
 sphere s2(vec3(1.2,-1.2,2),0.7);
 sphere s3(vec3(-2,-1.2,1.7),1);
-light_sphere ls(vec3(0,4,2),2);
+light_sphere ls(vec3(0,4,2),1);
 light_sphere ls2(vec3(-50,1,2),20);
 light_sphere ls3(vec3(0,1,-50),25);
 vec3 trace(const ray& init){
 	ray run = init;
 	for(int i = 0;i < 20;i++){
 		if((s >> run) != 0){
-			ray prun = s.reflectingRay(run);
-			run = std::move(prun);
+			run = s.reflectingRay(run);
 			run.colorStack.push(s.color);
 			continue;
 		}
 		else if((s2 >> run) != 0){
-			ray prun = s2.reflectingRay(run);
-			run = std::move(prun);
+			run = s2.reflectingRay(run);
 			run.colorStack.push(s2.color);
 			continue;
 		}
 		else if((s3 >> run) != 0){
-			ray prun = s3.reflectingRay(run);
-			run = std::move(prun);
+			run = s3.reflectingRay(run);
 			run.colorStack.push(s3.color);
 			continue;
 		}
@@ -58,21 +55,23 @@ vec3 trace(const ray& init){
 	}
 	return col;
 }
-#define rpp 4096
+#ifndef rpp
+#define rpp 6000
+#endif
 int main(){
 	s.setColor(0.8,0.8,0.8);
 	s2.setColor(1,0,0);
 	s3.setColor(0.97,0.97,0.97);
 	s3.diffuse = false;
-	ls.setColor(1,1,0);
+	ls.setColor(8,8,0);
 	ls2.setColor(0,1,1);
 	ls3.setColor(1,1,1);
-	std::vector<vec3> pixels(1024 * 1024);
+	std::vector<vec3> pixels(512 * 512);
 	int xi = 0,yi = 0;
 	std::stopwatch sw;
-	for(double x = -1;x < 1;x += 1.0 / 512){
+	for(double x = -1;x < 1;x += 1.0 / 256){
 		xi = 0;
-		for(double y = -1;y < 1;y += 1.0 / 512){
+		for(double y = -1;y < 1;y += 1.0 / 256){
 			ray curr(vec3(0,0,-2),vec3(y,x,1));
 			vec3 accum;
 			for(int i = 0;i < rpp;i++){
@@ -80,7 +79,7 @@ int main(){
 				accum += color;
 			}
 			
-			pixels[yi * 1024 + xi] = accum * (1.0 / rpp);
+			pixels[yi * 512 + xi] = accum * (1.0 / rpp);
 			xi++;
 		}
 		yi++;
