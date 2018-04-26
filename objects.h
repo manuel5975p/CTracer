@@ -2,12 +2,16 @@
 #define OBJECTS_H
 #include "vec3.h"
 #include "ray.h"
+#include <time.h>
 #include <cassert>
 #include <cmath>
+std::mt19937_64 ogen(time(NULL));
+std::uniform_real_distribution<v_t> dis(0,1);
 struct sphere{
 	vec3 loc;
 	vec3 color;
 	v_t rad;
+	bool diffuse = true;
 	sphere(const vec3& location,v_t radius) : loc(location), rad(radius){
 		
 	}
@@ -38,15 +42,25 @@ struct sphere{
 	}
 	
 	ray reflectingRay(ray& inc){
-		vec3 ip = intersectionPoint(inc, verbose);
-		assert(!(ip.x == 0 && ip.y == 0 && ip.z == 0));
-		vec3 planevec = !(loc - ip);
-		vec3 adder = (planevec) * (planevec * inc.l);
-		adder *= -2.0;
-		ray ret = ray(ip,inc.l + adder);
-		ret.colorStack = inc.colorStack;
-		ret.colorStack.push(color);
-		return ret;
+		if(diffuse || dis(ogen) < 0.1){
+			vec3 ip = intersectionPoint(inc);
+			vec3 planevec = !(ip - loc);
+			ray ret = ray(ip,planevec.randomHemisphere(ogen));
+			ret.colorStack = std::move(inc.colorStack);
+			ret.colorStack.push(color);
+			return ret;
+		}
+		else{
+			vec3 ip = intersectionPoint(inc);
+			assert(!(ip.x == 0 && ip.y == 0 && ip.z == 0));
+			vec3 planevec = !(loc - ip);
+			vec3 adder = (planevec) * (planevec * inc.l);
+			adder *= -2.0;
+			ray ret = ray(ip,inc.l + adder);
+			ret.colorStack = std::move(inc.colorStack);
+			ret.colorStack.push(color);
+			return ret;
+		}	
 	}
 };
 struct light_sphere{

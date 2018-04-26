@@ -18,5 +18,11 @@ struct ray{
 		out << o.o << " + t * " << o.l;
 		return out;
 	}
+	ray& operator=(ray&& other){
+		o = other.o;
+		l = other.l;
+		colorStack = std::move(other.colorStack);
+		return *this;
+	}
 };
 #endif

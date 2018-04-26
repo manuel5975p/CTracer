@@ -26,7 +26,7 @@ unsigned int sqrt(unsigned int a_nInput)
     return res;
 }
 void drawbmp (char* filename, const std::vector<vec3>& colors) {
-	int WIDTH = sqrt(colors.size());
+	int WIDTH = (int)sqrt((double)colors.size());
 	int HEIGHT = WIDTH;
 	unsigned int headers[13];
 	FILE * outfile;
