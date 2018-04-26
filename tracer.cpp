@@ -1,5 +1,5 @@
 #include "vec3.h"
-#include "Ray.h"
+#include "ray.h"
 #include "objects.h"
 #include "bmp.h"
 #include <time.h>
