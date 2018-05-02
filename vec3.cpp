@@ -88,9 +88,9 @@ vec3 vec3::ortho(std::mt19937_64& gen)const{
 vec3 vec3::randomHemisphere(std::mt19937_64& gen)const{
 	v_t theta;
 	if(true||(++rand_counter) % 3)
-	theta = std::asin(dist(gen));
+		theta = std::asin(dist(gen));
 	else
-	theta = PI_2_dist(gen);
+		theta = PI_2_dist(gen);
 	vec3 orth = this->ortho(gen);
 	orth *= std::cos(theta);
 	orth += (*this * std::sin(theta));
