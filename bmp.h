@@ -1,3 +1,3 @@
 #include "vec3.h"
 #include <vector>
-void drawbmp (char* filename, const std::vector<vec3>& colors);
+void drawbmp (const char* filename, const std::vector<vec3>& colors);
