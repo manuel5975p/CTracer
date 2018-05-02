@@ -70,13 +70,13 @@ vec3 vec3::crossMult(const vec3& o)const{
 	return vec3(y * o.z - z * o.y,z * o.x - x * o.z, x * o.y - y * o.x);
 }
 void vec3::normalize(){
-	v_t a = 1.0 / std::sqrt(x * x + y * y + z * z);
+	v_t a = 1.0 / norm();
 	x *= a;
 	y *= a;
 	z *= a;
 }
 vec3 vec3::normalized()const{
-	v_t a = 1.0 / std::sqrt(x * x + y * y + z * z);
+	v_t a = 1.0 / norm();
 	return vec3(x * a ,y * a, z * a);
 }
 //PRE: *this must be normalized!
