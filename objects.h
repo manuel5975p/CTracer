@@ -34,13 +34,13 @@ struct sphere{
 		}
 		v_t d = -(h1 + disc);
 		if(d <= 0.00001)
-		return vec3();
+			return vec3();
 		return ra.o + (ra.l * d);
 	}
 	vec3 operator>>(const ray& r){
 		return intersectionPoint(r);
 	}
-	
+
 	ray reflectingRay(ray& inc){
 		if(diffuse || dis(ogen) < 0.1){
 			vec3 ip = intersectionPoint(inc);
@@ -61,7 +61,7 @@ struct sphere{
 			ret.colorStack = std::move(inc.colorStack);
 			ret.colorStack.push(color);
 			return ret;
-		}	
+		}
 	}
 };
 struct light_sphere{
@@ -77,10 +77,10 @@ struct light_sphere{
 		return setColor(vec3(r,g,b));
 	}
 	light_sphere(const vec3& location,v_t radius) : loc(location), rad(radius),brightness(1){
-		
+
 	}
 	light_sphere(v_t radius,const vec3& location) : rad(radius), loc(location),brightness(1){
-		
+
 	}
 	vec3 intersectionPoint(const ray& ra){
 		v_t h1 = (ra.l * (ra.o - loc));
@@ -91,7 +91,7 @@ struct light_sphere{
 		disc = std::sqrt(disc);
 		v_t d = -(h1 + disc);
 		if(d <= 0.000001)
-		return vec3();
+			return vec3();
 		return ra.o + (ra.l * d);
 	}
 	vec3 operator>>(const ray& r){
