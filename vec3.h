@@ -20,11 +20,11 @@ using v_t = double;
 struct vec3{
 	v_t x,y,z;
 	vec3();
-	vec3(v_t a);
 	vec3(v_t _x,v_t _y,v_t _z);
-	vec3(std::mt19937_64& eng);
+	vec3(v_t a);
 	vec3(const vec3& o);
 	vec3(vec3&& o);
+	vec3(std::mt19937_64& gen);
 	vec3 hadamardProd(const vec3& o)const;
 	vec3& bangHadamardProd(const vec3& o);
 	void bangMult(v_t f);

@@ -56,7 +56,7 @@ vec3 trace(const ray& init){
 	return col;
 }
 #ifndef rpp
-#define rpp 6000
+#define rpp 100
 #endif
 int main(){
 	s.setColor(0.8,0.8,0.8);

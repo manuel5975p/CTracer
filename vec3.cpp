@@ -1,3 +1,4 @@
+#include <cassert>
 #include "vec3.h"
 std::uniform_real_distribution<v_t> dist(-1,1);
 std::uniform_real_distribution<v_t> PI_2_dist(0,M_PI_2);
@@ -10,21 +11,23 @@ vec3::vec3(v_t _x,v_t _y,v_t _z) : x(_x),y(_y),z(_z){
 vec3::vec3() : x(0),y(0),z(0){
 	
 }
-vec3::vec3(std::mt19937_64& gen){
-	x = dist(gen);
-	y = dist(gen);
-	z = dist(gen);
-	normalize();
-}
 vec3::vec3(v_t a) : x(a),y(a),z(a){
 	
 }
 vec3::vec3(const vec3& o) : x(o.x),y(o.y),z(o.z){
 	
 }
-vec3::vec3(vec3&& o) : x(o.x),y(o.y),z(o.z){
+vec3::vec3(vec3&& o) : x(std::move(o.x)),y(std::move(o.y)),z(std::move(o.z)){
 	
 }
+
+vec3::vec3(std::mt19937_64& gen){
+	x = dist(gen);
+	y = dist(gen);
+	z = dist(gen);
+	normalize();
+}
+
 void vec3::bangMult(v_t f){
 	x *= f;
 	y *= f;
@@ -136,25 +139,29 @@ vec3& vec3::operator*=(v_t f){
 	return *this;
 }
 vec3 vec3::operator/(v_t f)const{
-	return vec3(x / f,y / f,z / f);
+	f = ((v_t)1) / f;
+	return vec3(x * f,y * f,z * f);
 }
 vec3& vec3::operator/=(v_t f){
-	x /= f;
-	y /= f;
-	z /= f;
+	f = ((v_t)1) / f;
+	x *= f;
+	y *= f;
+	z *= f;
 	return *this;
 }
 bool vec3::operator==(const vec3& o)const{
 	return x == o.x && y == o.y && z == o.z;
 }
 bool vec3::operator==(v_t o)const{
-	return o == 0 && x == 0 && y == 0 && z == 0;
+	assert(o == 0);
+	return x == 0 && y == 0 && z == 0;
 }
 bool vec3::operator!=(const vec3& o)const{
 	return x != o.x || y != o.y || z != o.z;
 }
 bool vec3::operator!=(v_t o)const{
-	return o != 0 || x != 0 || y != 0 || z != 0;
+	assert(o == 0);
+	return x != 0 || y != 0 || z != 0;
 }
 vec3& vec3::operator=(const vec3& o){
 	x = o.x;
