@@ -85,14 +85,20 @@ vec3 vec3::normalized()const{
 //PRE: *this must be normalized!
 vec3 vec3::ortho(std::mt19937_64& gen)const{
 	vec3 ret(gen);
+	
+	vec3 sample = (*this) % ret;
+	sample.normalize();
+	vec3 orthsample = (*this) % sample;
+	orthsample.normalize();
+	//std::cout << sample.normsq() << std::endl;
+	v_t rnd = TWO_PI_dist(gen);
+	//std::cout << ((sample * std::sin(rnd)) + (orthsample * std::cos(rnd))).normsq() << std::endl;
+	return (sample * std::sin(rnd)) + (orthsample * std::cos(rnd));
 	return !(*this % ret);
 }
 //PRE: *this must be normalized!
 vec3 vec3::randomHemisphere(std::mt19937_64& gen)const{
 	v_t theta;
-	if(true||(++rand_counter) % 3)
-	theta = std::asin(dist(gen));
-	else
 	theta = PI_2_dist(gen);
 	vec3 orth = this->ortho(gen);
 	orth *= std::cos(theta);

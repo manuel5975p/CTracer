@@ -27,14 +27,18 @@ struct sphere{
 		return setColor(vec3(r,g,b));
 	}
 	vec3 intersectionPoint(const ray& ra){
-		v_t h1 = (ra.l * (ra.o - loc));
-		v_t disc = h1 * h1 - ((ra.o - loc).normsq()) + rad * rad;
+		//v_t h1 = (ra.l * (ra.o - loc));
+		//v_t disc = h1 * h1 - ((ra.o - loc).normsq()) + rad * rad;
+		v_t h1 = -(ra.l * (ra.o - loc));
+		v_t disc = std::pow(ra.l * (ra.o - loc), 2) - ((ra.o - loc).normsq() - rad*rad);
+		disc = std::sqrt(disc);
 		if(disc < 0){
 			return vec3();
 		}
-		v_t d = -(h1 + disc);
-		if(d <= 0.00001)
+		v_t d = h1 - disc;
+		if(d <= 0.00001){
 			return vec3();
+		}
 		return ra.o + (ra.l * d);
 	}
 	vec3 operator>>(const ray& r){

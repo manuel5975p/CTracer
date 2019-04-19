@@ -1,0 +1,369 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 16.50      0.80     0.80 78723048     0.00     0.00  vec3::operator-(vec3 const&) const
+ 16.50      1.60     0.80 13629022     0.00     0.00  sphere::intersectionPoint(ray const&)
+  9.69      2.07     0.47  1464749     0.00     0.00  double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul> >(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&)
+  7.43      2.43     0.36 32191384     0.00     0.00  vec3::operator!=(double) const
+  7.22      2.78     0.35 13447326     0.00     0.00  light_sphere::intersectionPoint(ray const&)
+  5.98      3.07     0.29 50967314     0.00     0.00  vec3::operator*(vec3 const&) const
+  5.36      3.33     0.26 32880357     0.00     0.00  vec3::normsq() const
+  4.85      3.57     0.24  3476494     0.00     0.00  trace(ray const&)
+  3.92      3.76     0.19  3639953     0.00     0.00  std::_Deque_base<vec3, std::allocator<vec3> >::_M_initialize_map(unsigned long)
+  3.71      3.94     0.18 38963827     0.00     0.00  vec3::vec3()
+  2.06      4.04     0.10  5758988     0.00     0.00  vec3::operator&=(vec3 const&)
+  2.06      4.14     0.10  2347042     0.00     0.00  vec3::operator+(vec3 const&) const
+  1.65      4.22     0.08   595056     0.00     0.00  sphere::reflectingRay(ray&)
+  1.44      4.29     0.07 14687520     0.00     0.00  vec3::vec3(vec3 const&)
+  1.24      4.35     0.06  4065681     0.00     0.00  vec3::operator+=(vec3 const&)
+  1.03      4.40     0.05  4146243     0.00     0.00  ray::ray(ray const&)
+  1.03      4.45     0.05   524294     0.00     0.00  vec3::vec3(double, double, double)
+  1.03      4.50     0.05   362161     0.00     0.00  vec3::randomHemisphere(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&) const
+  1.03      4.55     0.05   262144     0.00     0.00  vec3::operator=(vec3&&)
+  1.03      4.60     0.05  2466650     0.00     0.00  vec3::operator*(double) const
+  0.83      4.64     0.04  4585111     0.00     0.00  vec3::normalize()
+  0.83      4.68     0.04  2944286     0.00     0.00  vec3::operator==(vec3 const&) const
+  0.83      4.72     0.04   373003     0.00     0.00  vec3::operator-=(vec3 const&)
+  0.62      4.75     0.03  4452010     0.00     0.00  vec3::vec3(double)
+  0.62      4.78     0.03   476786     0.00     0.00  ray::operator=(ray&&)
+  0.41      4.80     0.02                             vec3::operator/=(double)
+  0.41      4.82     0.02                             main
+  0.21      4.83     0.01   820023     0.00     0.00  vec3::operator*=(double)
+  0.21      4.84     0.01                             vec3::operator&(vec3 const&) const
+  0.21      4.85     0.01                             vec3::operator!=(vec3 const&) const
+  0.10      4.85     0.01        1     5.00     5.00  drawbmp(char const*, std::vector<vec3, std::allocator<vec3> > const&)
+  0.00      4.85     0.00  1404597     0.00     0.00  vec3::operator=(vec3 const&)
+  0.00      4.85     0.00   857014     0.00     0.00  vec3::normalized() const
+  0.00      4.85     0.00   317179     0.00     0.00  vec3::operator!() const
+  0.00      4.85     0.00        3     0.00     0.00  set_fast_math
+  0.00      4.85     0.00        2     0.00     0.00  void std::deque<vec3, std::allocator<vec3> >::_M_push_back_aux<vec3 const&>(vec3 const&)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.21% of 4.85 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     99.2    0.02    4.79                 main [1]
+                0.24    4.29 3476494/3476494     trace(ray const&) [2]
+                0.06    0.00 4065681/4065681     vec3::operator+=(vec3 const&) [18]
+                0.05    0.00  524294/524294      vec3::vec3(double, double, double) [19]
+                0.05    0.00  262144/262144      vec3::operator=(vec3&&) [20]
+                0.04    0.00 2944286/2944286     vec3::operator==(vec3 const&) const [23]
+                0.03    0.00  786432/2347042     vec3::operator+(vec3 const&) const [16]
+                0.01    0.00  262144/3639953     std::_Deque_base<vec3, std::allocator<vec3> >::_M_initialize_map(unsigned long) [13]
+                0.01    0.00 1310720/38963827     vec3::vec3() [14]
+                0.01    0.00  262144/2466650     vec3::operator*(double) const [21]
+                0.01    0.00       1/1           drawbmp(char const*, std::vector<vec3, std::allocator<vec3> > const&) [31]
+                0.00    0.00  262144/14687520     vec3::vec3(vec3 const&) [17]
+                0.00    0.00  262144/857014      vec3::normalized() const [41]
+                0.00    0.00       6/1404597     vec3::operator=(vec3 const&) [40]
+-----------------------------------------------
+                0.24    4.29 3476494/3476494     main [1]
+[2]     93.3    0.24    4.29 3476494         trace(ray const&) [2]
+                0.77    0.97 13162488/13629022     sphere::intersectionPoint(ray const&) [3]
+                0.35    0.61 13447326/13447326     light_sphere::intersectionPoint(ray const&) [4]
+                0.08    0.69  595056/595056      sphere::reflectingRay(ray&) [6]
+                0.36    0.00 32191384/32191384     vec3::operator!=(double) const [9]
+                0.05    0.22 4146243/4146243     ray::ray(ray const&) [11]
+                0.10    0.00 5758988/5758988     vec3::operator&=(vec3 const&) [15]
+                0.03    0.00 6677655/14687520     vec3::vec3(vec3 const&) [17]
+                0.03    0.00 4452010/4452010     vec3::vec3(double) [25]
+                0.03    0.00  476786/476786      ray::operator=(ray&&) [26]
+                0.00    0.00       2/2           void std::deque<vec3, std::allocator<vec3> >::_M_push_back_aux<vec3 const&>(vec3 const&) [32]
+-----------------------------------------------
+                0.03    0.03  466534/13629022     sphere::reflectingRay(ray&) [6]
+                0.77    0.97 13162488/13629022     trace(ray const&) [2]
+[3]     37.1    0.80    1.00 13629022         sphere::intersectionPoint(ray const&) [3]
+                0.50    0.00 48842267/78723048     vec3::operator-(vec3 const&) const [5]
+                0.20    0.00 34579961/50967314     vec3::operator*(vec3 const&) const [10]
+                0.14    0.00 17342963/32880357     vec3::normsq() const [12]
+                0.09    0.00 19038389/38963827     vec3::vec3() [14]
+                0.05    0.00 1139677/2347042     vec3::operator+(vec3 const&) const [16]
+                0.03    0.00 1646600/2466650     vec3::operator*(double) const [21]
+-----------------------------------------------
+                0.35    0.61 13447326/13447326     trace(ray const&) [2]
+[4]     19.8    0.35    0.61 13447326         light_sphere::intersectionPoint(ray const&) [4]
+                0.30    0.00 29624704/78723048     vec3::operator-(vec3 const&) const [5]
+                0.12    0.00 15537394/32880357     vec3::normsq() const [12]
+                0.09    0.00 16032817/50967314     vec3::operator*(vec3 const&) const [10]
+                0.09    0.00 18614718/38963827     vec3::vec3() [14]
+                0.00    0.00  105039/2347042     vec3::operator+(vec3 const&) const [16]
+                0.00    0.00  141381/2466650     vec3::operator*(double) const [21]
+-----------------------------------------------
+                0.00    0.00  256077/78723048     sphere::reflectingRay(ray&) [6]
+                0.30    0.00 29624704/78723048     light_sphere::intersectionPoint(ray const&) [4]
+                0.50    0.00 48842267/78723048     sphere::intersectionPoint(ray const&) [3]
+[5]     16.5    0.80    0.00 78723048         vec3::operator-(vec3 const&) const [5]
+-----------------------------------------------
+                0.08    0.69  595056/595056      trace(ray const&) [2]
+[6]     15.8    0.08    0.69  595056         sphere::reflectingRay(ray&) [6]
+                0.05    0.34  362161/362161      vec3::randomHemisphere(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&) const [8]
+                0.13    0.00  412444/1464749     double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul> >(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&) [7]
+                0.03    0.03  466534/13629022     sphere::intersectionPoint(ray const&) [3]
+                0.04    0.00  373003/373003      vec3::operator-=(vec3 const&) [24]
+                0.02    0.00  439704/3639953     std::_Deque_base<vec3, std::allocator<vec3> >::_M_initialize_map(unsigned long) [13]
+                0.01    0.00  315894/2347042     vec3::operator+(vec3 const&) const [16]
+                0.01    0.00  820023/820023      vec3::operator*=(double) [28]
+                0.01    0.00  416525/2466650     vec3::operator*(double) const [21]
+                0.01    0.00 1256467/14687520     vec3::vec3(vec3 const&) [17]
+                0.00    0.00  256077/78723048     vec3::operator-(vec3 const&) const [5]
+                0.00    0.00  354536/50967314     vec3::operator*(vec3 const&) const [10]
+                0.00    0.00  594870/857014      vec3::normalized() const [41]
+                0.00    0.00  317179/317179      vec3::operator!() const [42]
+-----------------------------------------------
+                0.13    0.00  412444/1464749     sphere::reflectingRay(ray&) [6]
+                0.34    0.00 1052305/1464749     vec3::randomHemisphere(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&) const [8]
+[7]      9.7    0.47    0.00 1464749         double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul> >(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&) [7]
+-----------------------------------------------
+                0.05    0.34  362161/362161      sphere::reflectingRay(ray&) [6]
+[8]      8.0    0.05    0.34  362161         vec3::randomHemisphere(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&) const [8]
+                0.34    0.00 1052305/1464749     double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul> >(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&) [7]
+-----------------------------------------------
+                0.36    0.00 32191384/32191384     trace(ray const&) [2]
+[9]      7.4    0.36    0.00 32191384         vec3::operator!=(double) const [9]
+-----------------------------------------------
+                0.00    0.00  354536/50967314     sphere::reflectingRay(ray&) [6]
+                0.09    0.00 16032817/50967314     light_sphere::intersectionPoint(ray const&) [4]
+                0.20    0.00 34579961/50967314     sphere::intersectionPoint(ray const&) [3]
+[10]     6.0    0.29    0.00 50967314         vec3::operator*(vec3 const&) const [10]
+-----------------------------------------------
+                0.05    0.22 4146243/4146243     trace(ray const&) [2]
+[11]     5.7    0.05    0.22 4146243         ray::ray(ray const&) [11]
+                0.15    0.00 2938105/3639953     std::_Deque_base<vec3, std::allocator<vec3> >::_M_initialize_map(unsigned long) [13]
+                0.04    0.00 4585111/4585111     vec3::normalize() [22]
+                0.03    0.00 6491252/14687520     vec3::vec3(vec3 const&) [17]
+-----------------------------------------------
+                0.12    0.00 15537394/32880357     light_sphere::intersectionPoint(ray const&) [4]
+                0.14    0.00 17342963/32880357     sphere::intersectionPoint(ray const&) [3]
+[12]     5.4    0.26    0.00 32880357         vec3::normsq() const [12]
+-----------------------------------------------
+                0.01    0.00  262144/3639953     main [1]
+                0.02    0.00  439704/3639953     sphere::reflectingRay(ray&) [6]
+                0.15    0.00 2938105/3639953     ray::ray(ray const&) [11]
+[13]     3.9    0.19    0.00 3639953         std::_Deque_base<vec3, std::allocator<vec3> >::_M_initialize_map(unsigned long) [13]
+-----------------------------------------------
+                0.01    0.00 1310720/38963827     main [1]
+                0.09    0.00 18614718/38963827     light_sphere::intersectionPoint(ray const&) [4]
+                0.09    0.00 19038389/38963827     sphere::intersectionPoint(ray const&) [3]
+[14]     3.7    0.18    0.00 38963827         vec3::vec3() [14]
+-----------------------------------------------
+                0.10    0.00 5758988/5758988     trace(ray const&) [2]
+[15]     2.1    0.10    0.00 5758988         vec3::operator&=(vec3 const&) [15]
+-----------------------------------------------
+                0.00    0.00  105039/2347042     light_sphere::intersectionPoint(ray const&) [4]
+                0.01    0.00  315894/2347042     sphere::reflectingRay(ray&) [6]
+                0.03    0.00  786432/2347042     main [1]
+                0.05    0.00 1139677/2347042     sphere::intersectionPoint(ray const&) [3]
+[16]     2.1    0.10    0.00 2347042         vec3::operator+(vec3 const&) const [16]
+-----------------------------------------------
+                0.00    0.00       2/14687520     void std::deque<vec3, std::allocator<vec3> >::_M_push_back_aux<vec3 const&>(vec3 const&) [32]
+                0.00    0.00  262144/14687520     main [1]
+                0.01    0.00 1256467/14687520     sphere::reflectingRay(ray&) [6]
+                0.03    0.00 6491252/14687520     ray::ray(ray const&) [11]
+                0.03    0.00 6677655/14687520     trace(ray const&) [2]
+[17]     1.4    0.07    0.00 14687520         vec3::vec3(vec3 const&) [17]
+-----------------------------------------------
+                0.06    0.00 4065681/4065681     main [1]
+[18]     1.2    0.06    0.00 4065681         vec3::operator+=(vec3 const&) [18]
+-----------------------------------------------
+                0.05    0.00  524294/524294      main [1]
+[19]     1.0    0.05    0.00  524294         vec3::vec3(double, double, double) [19]
+-----------------------------------------------
+                0.05    0.00  262144/262144      main [1]
+[20]     1.0    0.05    0.00  262144         vec3::operator=(vec3&&) [20]
+-----------------------------------------------
+                0.00    0.00  141381/2466650     light_sphere::intersectionPoint(ray const&) [4]
+                0.01    0.00  262144/2466650     main [1]
+                0.01    0.00  416525/2466650     sphere::reflectingRay(ray&) [6]
+                0.03    0.00 1646600/2466650     sphere::intersectionPoint(ray const&) [3]
+[21]     1.0    0.05    0.00 2466650         vec3::operator*(double) const [21]
+-----------------------------------------------
+                0.04    0.00 4585111/4585111     ray::ray(ray const&) [11]
+[22]     0.8    0.04    0.00 4585111         vec3::normalize() [22]
+-----------------------------------------------
+                0.04    0.00 2944286/2944286     main [1]
+[23]     0.8    0.04    0.00 2944286         vec3::operator==(vec3 const&) const [23]
+-----------------------------------------------
+                0.04    0.00  373003/373003      sphere::reflectingRay(ray&) [6]
+[24]     0.8    0.04    0.00  373003         vec3::operator-=(vec3 const&) [24]
+-----------------------------------------------
+                0.03    0.00 4452010/4452010     trace(ray const&) [2]
+[25]     0.6    0.03    0.00 4452010         vec3::vec3(double) [25]
+-----------------------------------------------
+                0.03    0.00  476786/476786      trace(ray const&) [2]
+[26]     0.6    0.03    0.00  476786         ray::operator=(ray&&) [26]
+                0.00    0.00 1404591/1404597     vec3::operator=(vec3 const&) [40]
+-----------------------------------------------
+                                                 <spontaneous>
+[27]     0.4    0.02    0.00                 vec3::operator/=(double) [27]
+-----------------------------------------------
+                0.01    0.00  820023/820023      sphere::reflectingRay(ray&) [6]
+[28]     0.2    0.01    0.00  820023         vec3::operator*=(double) [28]
+-----------------------------------------------
+                                                 <spontaneous>
+[29]     0.2    0.01    0.00                 vec3::operator&(vec3 const&) const [29]
+-----------------------------------------------
+                                                 <spontaneous>
+[30]     0.2    0.01    0.00                 vec3::operator!=(vec3 const&) const [30]
+-----------------------------------------------
+                0.01    0.00       1/1           main [1]
+[31]     0.1    0.01    0.00       1         drawbmp(char const*, std::vector<vec3, std::allocator<vec3> > const&) [31]
+-----------------------------------------------
+                0.00    0.00       2/2           trace(ray const&) [2]
+[32]     0.0    0.00    0.00       2         void std::deque<vec3, std::allocator<vec3> >::_M_push_back_aux<vec3 const&>(vec3 const&) [32]
+                0.00    0.00       2/14687520     vec3::vec3(vec3 const&) [17]
+-----------------------------------------------
+                0.00    0.00       3/3           __libc_csu_init [70]
+[33]     0.0    0.00    0.00       3         set_fast_math [33]
+-----------------------------------------------
+                0.00    0.00       6/1404597     main [1]
+                0.00    0.00 1404591/1404597     ray::operator=(ray&&) [26]
+[40]     0.0    0.00    0.00 1404597         vec3::operator=(vec3 const&) [40]
+-----------------------------------------------
+                0.00    0.00  262144/857014      main [1]
+                0.00    0.00  594870/857014      sphere::reflectingRay(ray&) [6]
+[41]     0.0    0.00    0.00  857014         vec3::normalized() const [41]
+-----------------------------------------------
+                0.00    0.00  317179/317179      sphere::reflectingRay(ray&) [6]
+[42]     0.0    0.00    0.00  317179         vec3::operator!() const [42]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+   [2] trace(ray const&)      [40] vec3::operator=(vec3 const&) [5] vec3::operator-(vec3 const&) const
+  [31] drawbmp(char const*, std::vector<vec3, std::allocator<vec3> > const&) [27] vec3::operator/=(double) [10] vec3::operator*(vec3 const&) const
+   [4] light_sphere::intersectionPoint(ray const&) [24] vec3::operator-=(vec3 const&) [21] vec3::operator*(double) const
+  [11] ray::ray(ray const&)   [28] vec3::operator*=(double) [30] vec3::operator!=(vec3 const&) const
+  [26] ray::operator=(ray&&)  [18] vec3::operator+=(vec3 const&) [9] vec3::operator!=(double) const
+  [22] vec3::normalize()       [6] sphere::reflectingRay(ray&) [42] vec3::operator!() const
+  [17] vec3::vec3(vec3 const&) [3] sphere::intersectionPoint(ray const&) [16] vec3::operator+(vec3 const&) const
+  [25] vec3::vec3(double)     [41] vec3::normalized() const [13] std::_Deque_base<vec3, std::allocator<vec3> >::_M_initialize_map(unsigned long)
+  [19] vec3::vec3(double, double, double) [8] vec3::randomHemisphere(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&) const [32] void std::deque<vec3, std::allocator<vec3> >::_M_push_back_aux<vec3 const&>(vec3 const&)
+  [14] vec3::vec3()           [12] vec3::normsq() const    [7] double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul> >(std::mersenne_twister_engine<unsigned long, 64ul, 312ul, 156ul, 31ul, 13043109905998158313ul, 29ul, 6148914691236517205ul, 17ul, 8202884508482404352ul, 37ul, 18444473444759240704ul, 43ul, 6364136223846793005ul>&)
+  [15] vec3::operator&=(vec3 const&) [29] vec3::operator&(vec3 const&) const [1] main
+  [20] vec3::operator=(vec3&&) [23] vec3::operator==(vec3 const&) const [33] set_fast_math (crtfastmath.c)
